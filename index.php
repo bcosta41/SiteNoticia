@@ -1,3 +1,6 @@
+<?php
+include_once "conexao.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,7 +29,10 @@
         </nav>
         <main>
             <article>
-                conteudo 1111111111
+                <img src="img/exemplo.jpg" alt="fotonoticia" class="fotonoticia">
+                <p class="textonoticia">O playset inclui: - Uma figura da Gabby, uma figura do Pandy Paws, mobília para cada quarto, três acessórios e duas caixinhas de Dollhouse.</p>
+                <img src="img/saibamais.png" alt="Saiba Mais">
+
             </article>
             <article>
                 conteudo 2
