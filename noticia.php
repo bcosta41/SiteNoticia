@@ -29,26 +29,24 @@ include_once "conexao.php";
         </nav>
         <main>
             <?php
-                $sql = "SELECT * FROM tb_noticia ORDER BY RAND() LIMIT 6;";
-                $resultado = mysqli_execute_query($conexao, $sql);
-                while($dados = mysqli_fetch_array($resultado))
-                {
-                    echo '
-                    <article>
-                        <img src="img/' .$dados["imagem"].' " alt="fotonoticia" class="fotonoticia">
-                        <p class="textonoticia">'.$dados["titulo"].'</p>
-                        <a href="noticia.php?id_noticia='.$dados["id_noticia"].'">
-                            <img src="img/saibamais.png" alt="Saiba Mais" class="saibamais">
-                        </a>
-                    </article>
-                    ';
-                }
+               $id_noticia =@$_GET['$id_noticia'];
+               if(!$id_noticia)
+               {
+                  echo 'tem conteudo';
+                  $sql = "SELECT * FROM tb_noticia WHERE id_noticia = $id_noticia;";
+                  $resultado = mysqli_execute_query($conexao,$sql);
+                  $dados = mysqli_fetch_array($resultado);
+                  echo "titulo:".$dados['titulo'].'<br>';
+                  echo "date e hora:".$dados['datahora'].'<br>';
+                  echo "imagem:".$dados['imagem'].'<br>';
+                  echo "fonte:".$dados['fonte'].'<br>';
+                  echo "autor:".$dados['autor'].'<br>';
+                  echo "noticia:".$dados['noticia'].'<br>';
+               }else{
+                   echo 'nao tem conteudo';
+               }
             ?>
 
-            <article>
-                <img src="img/exemplo.jpg" alt="fotonoticia" class="fotonoticia">
-                <p class="textonoticia">O playset inclui: - Uma figura da Gabby, uma figura do Pandy Paws, mobília para cada quarto, três acessórios e duas caixinhas de Dollhouse.</p>
-                <img src="img/saibamais.png" alt="Saiba Mais">
         </main>
         <footer>
             <a href="#"><img src="img/whats.png" alt="whatsapp" width="226"></a>
