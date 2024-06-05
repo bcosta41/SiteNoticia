@@ -29,7 +29,7 @@ include_once "conexao.php";
         </nav>
         <main>
             <?php
-               $id_noticia =@$_GET['$id_noticia'];
+               $id_noticia = @$_GET['$id_noticia'];
                if(!$id_noticia)
                {
                   echo 'tem conteudo';
@@ -38,7 +38,7 @@ include_once "conexao.php";
                   $dados = mysqli_fetch_array($resultado);
                   echo "titulo:".$dados['titulo'].'<br>';
                   echo "date e hora:".$dados['datahora'].'<br>';
-                  echo "imagem:".$dados['imagem'].'<br>';
+                  echo "imagem:<img = src='img/" .$dados['imagem']." ' width='200'><br>";
                   echo "fonte:".$dados['fonte'].'<br>';
                   echo "autor:".$dados['autor'].'<br>';
                   echo "noticia:".$dados['noticia'].'<br>';
